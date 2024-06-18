@@ -283,7 +283,7 @@ void read_conf(vector<int>& config) {
 }
 
 bool read_test(vector<int>& config, vector<vector<double>>& inputs_other, vector<vector<double>>& targets_other) {
-    cout << "Образец файла для теста:\nconfig\nx y z\ninputs\na11 a12 a13...a1m\na21 a22 a23...a2m\n...........\nan1 an2 an3...anm";
+    cout << "Образец файла test для теста:\nconfig\nx y z\ninputs\na11 a12 a13...a1m\na21 a22 a23...a2m\n...........\nan1 an2 an3...anm";
     cout << "\noutputs\nb11 b12 b13...b1k\nb21 b22 b23...b2k\n...........\nbn1 bn2 bn3...bnk\n";
     cout << "\nГде x y z - количество нейронов первого, второго и третьего слоя\n{anm} - входные данные\n{onk} - результат\nВажно! Количество нейронов первого слоя (x) должно равняться количеству ";
     cout << "входных данных (m). Количество нейронов последнего слоя (z) должно равняться количеству выходных данных (k).\n\nПример:\ninputs\n1 1 1 1\noutputs\n1 1\nЗначит x = 4, z = 2\n\n";
@@ -291,6 +291,7 @@ bool read_test(vector<int>& config, vector<vector<double>>& inputs_other, vector
     if (!conf.is_open()) {
         cout << "Error file!\n"; return false;
     }
+    if (conf.peek() == EOF) { cout << "Файл пустой\n"; return false; }
     vector<vector<double>> inputs1_other;
     vector<vector<double>> outputs1_other;
     string s, st;
