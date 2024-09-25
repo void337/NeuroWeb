@@ -14,8 +14,8 @@
 
 using namespace std;
 
-double moderlu(double x);
-double moderlu_derivative(double x);
+double modrelu(double x);
+double modrelu_derivative(double x);
 vector<double> matrix_multiply_sum(const vector<vector<double>>& A, const vector<double>& B, int input_neuro, int output_neuro, const vector<double>& bias);
 
 class MultilayerPerceptron {
